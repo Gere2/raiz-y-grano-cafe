@@ -5,13 +5,14 @@ import Footer from './Footer';
 
 interface LayoutProps {
   children: ReactNode;
+  fullWidth?: boolean;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, fullWidth = false }: LayoutProps) => {
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       <Navbar />
-      <main className="flex-grow">
+      <main className={`flex-grow ${fullWidth ? 'w-full' : ''}`}>
         {children}
       </main>
       <Footer />
