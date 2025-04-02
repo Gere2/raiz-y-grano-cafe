@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Layout from "@/components/Layout";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ChevronDown, Coffee, Leaf, MapPin } from "lucide-react";
+import { ChevronDown, Coffee, Leaf, MapPin, Rocket, Users, ShoppingBag } from "lucide-react";
 
 const Index = () => {
   useEffect(() => {
@@ -83,14 +83,25 @@ const Index = () => {
               RAÍZ Y GRANO
             </motion.h1>
 
-            {/* Slogan animado */}
+            {/* Slogan animado - ACTUALIZADO */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
-              className="text-xl md:text-2xl text-cafe-dark-brown mb-8 italic font-serif"
+              className="text-xl md:text-2xl text-cafe-dark-brown mb-6 italic font-serif"
             >
-              La esencia del café en cada sentido
+              Sabor que enciende neuronas
+            </motion.p>
+
+            {/* Descripción - NUEVA */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.8 }}
+              className="text-lg text-cafe-dark-brown mb-8 max-w-2xl mx-auto"
+            >
+              Una experiencia de café de especialidad y repostería gourmet dentro del campus universitario, 
+              con impacto social, humano y sostenible.
             </motion.p>
 
             {/* Botones flotantes */}
@@ -150,83 +161,54 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Segunda sección inmersiva */}
-      <section className="min-h-screen relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-cafe-cream to-cafe-beige opacity-90 z-0"></div>
-        
-        {/* Elementos decorativos */}
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 0.1, x: 0 }}
-          transition={{ duration: 1 }}
-          className="absolute left-0 top-1/4 w-64 h-64"
-          style={{
-            backgroundImage: `url('/lovable-uploads/ffa79ff1-d030-4159-bd0b-8e303ab0f366.png')`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            transform: "rotate(-15deg)"
-          }}
-        />
-        <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 0.1, x: 0 }}
-          transition={{ duration: 1 }}
-          className="absolute right-0 bottom-1/4 w-64 h-64"
-          style={{
-            backgroundImage: `url('/lovable-uploads/ffa79ff1-d030-4159-bd0b-8e303ab0f366.png')`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            transform: "rotate(15deg)"
-          }}
-        />
-
+      {/* Nuestra Esencia - NUEVA SECCIÓN */}
+      <section className="py-20 bg-cafe-beige bg-opacity-50 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center mb-16"
           >
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="h-px w-16 bg-cafe-light-brown"></div>
-              <span className="text-cafe-light-brown font-serif uppercase tracking-widest text-sm">Nuestro propósito</span>
-              <div className="h-px w-16 bg-cafe-light-brown"></div>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-cafe-dark-brown mb-8">Revolucionando la experiencia del café</h2>
-            <p className="text-xl text-cafe-dark-brown opacity-80 leading-relaxed">
-              En un mundo acelerado y digital, <span className="italic">Raíz y Grano</span> representa la pausa consciente, 
-              el regreso a lo auténtico y el disfrute de lo artesanal. Más que café, ofrecemos una experiencia sensorial completa.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-cafe-dark-brown mb-8 relative inline-block">
+              Nuestra Esencia
+              <motion.div 
+                className="absolute -bottom-2 left-0 right-0 h-1 bg-cafe-light-brown"
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                viewport={{ once: true }}
+              />
+            </h2>
           </motion.div>
 
-          {/* Cards animadas */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
               {
+                icon: <Rocket className="h-8 w-8 text-cafe-light-brown" />,
+                title: "Visión",
+                description: "Ser el referente de café de especialidad y repostería artesanal dentro del entorno universitario."
+              },
+              {
                 icon: <Leaf className="h-8 w-8 text-cafe-leaf-green" />,
-                title: "De la planta a la taza",
-                description: "Conocemos cada paso del proceso del café, desde su cultivo hasta su preparación final."
+                title: "Misión",
+                description: "Crear un espacio móvil donde disfrutar productos premium que promuevan la sostenibilidad y la conexión humana."
               },
               {
-                icon: <Coffee className="h-8 w-8 text-cafe-light-brown" />,
-                title: "Métodos especializados",
-                description: "Cada método de extracción resalta diferentes notas y matices en nuestros cafés de origen."
-              },
-              {
-                icon: <MapPin className="h-8 w-8 text-cafe-dark-brown" />,
-                title: "Ubicación estratégica",
-                description: "Entre el edificio H y el CRAI, el lugar perfecto para tu pausa entre clases."
+                icon: <Users className="h-8 w-8 text-cafe-dark-brown" />,
+                title: "Valores",
+                description: "Calidad, frescura, sostenibilidad, cercanía y educación."
               }
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
                 whileHover={{ y: -10 }}
-                className="bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl p-8 shadow-xl"
+                className="bg-white rounded-xl p-8 shadow-md border border-cafe-beige"
               >
                 <div className="rounded-full bg-cafe-cream w-16 h-16 flex items-center justify-center mb-6 mx-auto">
                   {item.icon}
@@ -236,29 +218,294 @@ const Index = () => {
               </motion.div>
             ))}
           </div>
+        </div>
 
+        {/* Decorative elements */}
+        <motion.div
+          className="absolute -left-20 -bottom-20 w-64 h-64 rounded-full bg-cafe-light-brown opacity-10"
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 90, 180, 270, 360],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            repeatType: "loop"
+          }}
+        />
+        <motion.div
+          className="absolute -right-32 top-20 w-80 h-80 rounded-full bg-cafe-leaf-green opacity-10"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            rotate: [360, 270, 180, 90, 0],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            repeatType: "loop"
+          }}
+        />
+      </section>
+
+      {/* Qué Ofrecemos - NUEVA SECCIÓN */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-cafe-dark-brown mb-8 relative inline-block">
+              Qué Ofrecemos
+              <motion.div 
+                className="absolute -bottom-2 left-0 right-0 h-1 bg-cafe-light-brown"
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                viewport={{ once: true }}
+              />
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-cafe-cream bg-opacity-40 rounded-2xl p-8 relative overflow-hidden"
+            >
+              <motion.div 
+                className="absolute top-0 right-0 w-24 h-24 -mr-6 -mt-6 opacity-10"
+                style={{
+                  backgroundImage: `url('/lovable-uploads/ffa79ff1-d030-4159-bd0b-8e303ab0f366.png')`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat"
+                }}
+                animate={{
+                  rotate: [0, 360],
+                }}
+                transition={{
+                  duration: 40,
+                  repeat: Infinity,
+                  repeatType: "loop"
+                }}
+              />
+              
+              <h3 className="text-2xl font-serif font-semibold text-cafe-dark-brown mb-6 flex items-center">
+                <Coffee className="mr-3 text-cafe-light-brown" size={24} />
+                Café de especialidad
+              </h3>
+              
+              <ul className="space-y-4">
+                {[
+                  "Granos premium de origen único",
+                  "Métodos artesanales (espresso, V60, Aeropress, Chemex)",
+                  "Bebidas frías y sabores estacionales",
+                  "Leches vegetales y siropes artesanales"
+                ].map((item, idx) => (
+                  <motion.li 
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-start"
+                  >
+                    <span className="text-cafe-light-brown mr-2">•</span>
+                    <span>{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-cafe-light-leaf bg-opacity-30 rounded-2xl p-8 relative overflow-hidden"
+            >
+              <motion.div 
+                className="absolute top-0 right-0 w-24 h-24 -mr-6 -mt-6 opacity-10"
+                style={{
+                  backgroundImage: `url('/lovable-uploads/ffa79ff1-d030-4159-bd0b-8e303ab0f366.png')`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat"
+                }}
+                animate={{
+                  rotate: [0, 360],
+                }}
+                transition={{
+                  duration: 40,
+                  repeat: Infinity,
+                  repeatType: "loop"
+                }}
+              />
+              
+              <h3 className="text-2xl font-serif font-semibold text-cafe-dark-brown mb-6 flex items-center">
+                <ShoppingBag className="mr-3 text-cafe-leaf-green" size={24} />
+                Repostería artesanal
+              </h3>
+              
+              <ul className="space-y-4">
+                {[
+                  "Elaborada por pasteleros locales (Galia Pastelería)",
+                  "Opciones veganas, sin gluten, bajas en azúcar",
+                  "Recetas que cambian con las estaciones",
+                  "Servicios personalizados"
+                ].map((item, idx) => (
+                  <motion.li 
+                    key={idx}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-start"
+                  >
+                    <span className="text-cafe-leaf-green mr-2">•</span>
+                    <span>{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
             className="text-center mt-16"
           >
-            <Link to="/nosotros" className="relative inline-block group">
-              <span className="relative z-10 flex items-center justify-center gap-2 py-3 px-8 text-cafe-dark-brown font-medium">
-                <span>Conoce nuestra historia</span>
+            <Link to="/carta" className="inline-block">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="bg-cafe-dark-brown text-cafe-cream py-3 px-8 rounded-full flex items-center gap-2"
+              >
+                Ver carta completa
                 <motion.span
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 >→</motion.span>
-              </span>
-              <motion.div 
-                className="absolute bottom-0 left-0 right-0 h-1 bg-cafe-light-brown rounded"
-                whileHover={{ height: '100%', borderRadius: '0.5rem' }}
-                transition={{ duration: 0.3 }}
-              />
+              </motion.div>
             </Link>
           </motion.div>
         </div>
+      </section>
+
+      {/* Nuestro Modelo - NUEVA SECCIÓN */}
+      <section className="py-20 bg-gradient-to-b from-cafe-cream to-white relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-cafe-dark-brown mb-2">
+              Nuestro Modelo
+            </h2>
+            <p className="text-cafe-dark-brown text-lg">
+              Food truck con impacto universitario
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-xl mb-6 transform md:rotate-2">
+                <div className="bg-cafe-light-brown bg-opacity-60 absolute inset-0 flex items-center justify-center">
+                  <div className="text-white text-center px-6">
+                    <p className="text-2xl font-serif font-medium mb-2">Próximamente</p>
+                    <p className="text-sm">Imagen de nuestro food truck</p>
+                  </div>
+                </div>
+              </div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="bg-white p-6 rounded-xl shadow-lg max-w-sm mx-auto md:mx-0 md:-mt-16 md:ml-10 relative z-10"
+              >
+                <h3 className="text-xl font-medium text-cafe-dark-brown mb-3">Ubicación estratégica</h3>
+                <p className="text-cafe-dark-brown">
+                  Operamos desde un food truck en la UFV (Pozuelo, Madrid), con movilidad dentro 
+                  del campus según la demanda.
+                </p>
+              </motion.div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex flex-col justify-center"
+            >
+              <h3 className="text-2xl font-serif font-semibold text-cafe-dark-brown mb-6">
+                Un equipo extraordinario
+              </h3>
+              
+              <ul className="space-y-4">
+                {[
+                  "Potente equipo: baristas expertos, chef pastelero, marketing y tecnología",
+                  "Colaboraciones con proveedores responsables como Amor Perfecto (café) y Oatly (leches vegetales)",
+                  "Compromiso con la sostenibilidad y el impacto social",
+                  "Tecnología integrada para mejorar la experiencia del cliente"
+                ].map((item, idx) => (
+                  <motion.li 
+                    key={idx}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-start bg-cafe-cream bg-opacity-30 p-3 rounded-lg"
+                  >
+                    <span className="text-cafe-dark-brown mr-2 font-bold">•</span>
+                    <span>{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="mt-8"
+              >
+                <Link to="/nosotros" className="inline-block">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className="border-2 border-cafe-dark-brown text-cafe-dark-brown py-2 px-6 rounded-full flex items-center gap-2"
+                  >
+                    Conocer todo nuestro equipo
+                    <motion.span
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >→</motion.span>
+                  </motion.div>
+                </Link>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+        
+        {/* Decorative elements */}
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
       </section>
     </Layout>
   );
