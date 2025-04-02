@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				cafe: {
+					'cream': '#F8F2DC',
+					'beige': '#E6D7B9',
+					'light-brown': '#A67C52',
+					'dark-brown': '#4A3520',
+					'leaf-green': '#889F6D',
+					'light-leaf': '#C4D7A4'
 				}
 			},
 			borderRadius: {
@@ -84,11 +93,30 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out'
+			},
+			fontFamily: {
+				'serif': ['Playfair Display', 'serif'],
+				'sans': ['Montserrat', 'sans-serif']
+			},
+			backgroundImage: {
+				'leaf-pattern': "url('/public/lovable-uploads/147f83b5-bcab-4380-afbe-a256626eda4f.png')",
+				'cafe-texture': "linear-gradient(rgba(248, 242, 220, 0.8), rgba(248, 242, 220, 0.8)), url('/public/lovable-uploads/147f83b5-bcab-4380-afbe-a256626eda4f.png')"
 			}
 		}
 	},
