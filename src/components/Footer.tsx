@@ -9,7 +9,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center gap-2 mb-4">
-              <Coffee className="w-6 h-6" />
+              <img 
+                src="/lovable-uploads/c22750e3-6255-4880-9df0-6576b35fe881.png" 
+                alt="Raíz y Grano" 
+                className="h-10 w-auto invert" 
+              />
               <span className="font-serif text-xl font-bold">Raíz y Grano</span>
             </div>
             <p className="text-center md:text-left mb-4 text-cafe-beige">
@@ -33,9 +37,8 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <Clock size={18} className="shrink-0 mt-0.5" />
                 <div>
-                  <p>Lunes a Viernes: 8:00 - 20:00</p>
-                  <p>Sábados: 9:00 - 21:00</p>
-                  <p>Domingos: 9:00 - 14:00</p>
+                  <p>Lunes a Viernes: 7:00 - 18:00</p>
+                  <p>Sábados y Domingos: Cerrado</p>
                 </div>
               </div>
             </div>

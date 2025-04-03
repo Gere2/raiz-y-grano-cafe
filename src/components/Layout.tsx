@@ -13,7 +13,7 @@ const Layout = ({ children, fullWidth = false, className = "" }: LayoutProps) =>
   return (
     <div className={`flex flex-col min-h-screen overflow-hidden bg-cafe-cream bg-opacity-30 ${className}`}>
       <Navbar />
-      <main className={`flex-grow ${fullWidth ? 'w-full' : 'container mx-auto px-4 md:px-6'}`}>
+      <main className={`flex-grow pt-20 md:pt-24 ${fullWidth ? 'w-full' : 'container mx-auto px-4 md:px-6'}`}>
         {children}
       </main>
       <Footer />
