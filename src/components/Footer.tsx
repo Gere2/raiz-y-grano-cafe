@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center gap-3 mb-5">
               <img 
-                src="/lovable-uploads/ddeacb14-fb05-4b06-a9b9-353d23b4b9a9.png" 
+                src="/lovable-uploads/c22750e3-6255-4880-9df0-6576b35fe881.png" 
                 alt="Raíz y Grano" 
                 className="h-10 w-auto invert" 
               />

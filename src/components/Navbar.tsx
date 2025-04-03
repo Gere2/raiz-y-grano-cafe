@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
@@ -50,7 +50,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/ddeacb14-fb05-4b06-a9b9-353d23b4b9a9.png" 
+              src="/lovable-uploads/c22750e3-6255-4880-9df0-6576b35fe881.png" 
               alt="Raíz y Grano" 
               className="h-12 md:h-14"
             />
@@ -63,7 +63,7 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 className={`text-cafe-dark-brown hover:text-cafe-light-brown font-medium transition-colors relative ${
-                  isActive(link.path) ? 'text-cafe-light-brown after:content-[""] after:absolute after:w-full after:h-0.5 after:bg-cafe-light-brown after:bottom-[-6px] after:left-0' : ''
+                  isActive(link.path) ? 'after:content-[""] after:absolute after:w-full after:h-0.5 after:bg-cafe-light-brown after:bottom-[-6px] after:left-0' : ''
                 }`}
               >
                 {link.name}
@@ -74,7 +74,7 @@ const Navbar = () => {
               href="https://instagram.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-cafe-dark-brown hover:text-cafe-light-brown transition-colors bg-cafe-beige bg-opacity-30 p-2 rounded-full"
+              className="text-cafe-dark-brown hover:text-cafe-light-brown transition-colors"
               aria-label="Instagram"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
