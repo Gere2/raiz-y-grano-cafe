@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Coffee } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -40,11 +40,12 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-2">
-            <Coffee className="w-8 h-8 text-cafe-dark-brown" />
-            <span className="text-xl md:text-2xl font-serif font-bold text-cafe-dark-brown">
-              Raíz y Grano
-            </span>
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/lovable-uploads/50962901-9c41-4258-8863-c7b3b67e3296.png" 
+              alt="Raíz y Grano" 
+              className="h-12 md:h-14"
+            />
           </Link>
 
           {/* Desktop Menu */}

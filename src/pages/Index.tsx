@@ -4,6 +4,14 @@ import Layout from "@/components/Layout";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronDown, Coffee, Leaf, MapPin, Rocket, Users, ShoppingBag } from "lucide-react";
+import HomeCarousel from "@/components/HomeCarousel";
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from "@/components/ui/carousel";
 
 const Index = () => {
   useEffect(() => {
@@ -16,7 +24,7 @@ const Index = () => {
   const y = useTransform(scrollY, [0, 300], [0, -50]);
 
   return (
-    <Layout>
+    <Layout fullWidth>
       {/* Sección Hero Inmersiva */}
       <section className="relative min-h-screen w-full overflow-hidden">
         {/* Fondo animado */}
@@ -36,7 +44,7 @@ const Index = () => {
               repeatType: "reverse" 
             }}
             style={{
-              backgroundImage: `url('/lovable-uploads/ffa79ff1-d030-4159-bd0b-8e303ab0f366.png')`,
+              backgroundImage: `url('/lovable-uploads/703a4878-f141-4f18-9e9a-c4504863e4eb.png')`,
               backgroundSize: "40%",
               backgroundPosition: "center",
               filter: "blur(40px) saturate(150%)"
@@ -58,7 +66,7 @@ const Index = () => {
               className="mb-6 relative"
             >
               <motion.img 
-                src="/lovable-uploads/ffa79ff1-d030-4159-bd0b-8e303ab0f366.png" 
+                src="/lovable-uploads/703a4878-f141-4f18-9e9a-c4504863e4eb.png" 
                 alt="Raíz y Grano" 
                 className="h-32 md:h-40 mx-auto"
                 whileHover={{ scale: 1.05 }}
@@ -83,7 +91,7 @@ const Index = () => {
               RAÍZ Y GRANO
             </motion.h1>
 
-            {/* Slogan animado - ACTUALIZADO */}
+            {/* Slogan animado */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -93,7 +101,7 @@ const Index = () => {
               Sabor que enciende neuronas
             </motion.p>
 
-            {/* Descripción - NUEVA */}
+            {/* Descripción */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -161,7 +169,51 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Nuestra Esencia - NUEVA SECCIÓN */}
+      {/* Carrusel de Imágenes */}
+      <section className="py-12 md:py-20 relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="mb-12 text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-cafe-dark-brown mb-3 relative inline-block">
+              Nuestra Experiencia
+              <motion.div 
+                className="absolute -bottom-2 left-0 right-0 h-1 bg-cafe-light-brown"
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                viewport={{ once: true }}
+              />
+            </h2>
+            <p className="text-cafe-dark-brown text-lg max-w-2xl mx-auto">
+              Mucho más que café: una pausa consciente entre clase y clase.
+            </p>
+          </motion.div>
+          
+          <div className="w-full h-[400px] md:h-[500px] mb-12">
+            <HomeCarousel />
+          </div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <p className="text-lg italic font-serif text-cafe-dark-brown">
+              "El café es ese momento de pausa que te conecta con los demás y contigo mismo,
+              potenciando tu creatividad y recuperando energías para seguir."
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Nuestra Esencia */}
       <section className="py-20 bg-cafe-beige bg-opacity-50 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -247,7 +299,7 @@ const Index = () => {
         />
       </section>
 
-      {/* Qué Ofrecemos - NUEVA SECCIÓN */}
+      {/* Qué Ofrecemos */}
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -280,7 +332,7 @@ const Index = () => {
               <motion.div 
                 className="absolute top-0 right-0 w-24 h-24 -mr-6 -mt-6 opacity-10"
                 style={{
-                  backgroundImage: `url('/lovable-uploads/ffa79ff1-d030-4159-bd0b-8e303ab0f366.png')`,
+                  backgroundImage: `url('/lovable-uploads/703a4878-f141-4f18-9e9a-c4504863e4eb.png')`,
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat"
                 }}
@@ -331,7 +383,7 @@ const Index = () => {
               <motion.div 
                 className="absolute top-0 right-0 w-24 h-24 -mr-6 -mt-6 opacity-10"
                 style={{
-                  backgroundImage: `url('/lovable-uploads/ffa79ff1-d030-4159-bd0b-8e303ab0f366.png')`,
+                  backgroundImage: `url('/lovable-uploads/703a4878-f141-4f18-9e9a-c4504863e4eb.png')`,
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat"
                 }}
@@ -397,7 +449,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Nuestro Modelo - NUEVA SECCIÓN */}
+      {/* Nuestro Modelo */}
       <section className="py-20 bg-gradient-to-b from-cafe-cream to-white relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -506,6 +558,79 @@ const Index = () => {
         
         {/* Decorative elements */}
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
+      </section>
+
+      {/* Nuestros Productos - Carrusel */}
+      <section className="py-12 md:py-20 bg-white relative">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-cafe-dark-brown mb-3">
+              Deliciosa Artesanía
+            </h2>
+            <p className="text-cafe-dark-brown">
+              Explora nuestra selección de productos elaborados con pasión y dedicación
+            </p>
+          </motion.div>
+
+          <Carousel className="w-full max-w-5xl mx-auto">
+            <CarouselContent>
+              {[
+                { 
+                  title: "Café de especialidad", 
+                  description: "Disfrutar de un buen café es un ritual que revitaliza cuerpo y mente",
+                  image: "/lovable-uploads/649eac4b-afe2-4360-9252-bede9f39acc3.png" 
+                },
+                { 
+                  title: "Método de preparación", 
+                  description: "Cuidamos cada detalle en la preparación para resaltar los mejores aromas",
+                  image: "/lovable-uploads/f53365f0-b667-4808-a863-b2fb6e913df5.png" 
+                },
+                { 
+                  title: "Experiencia sensorial", 
+                  description: "Cada taza es una invitación a pausar y reconectar",
+                  image: "/lovable-uploads/70f57454-a1cc-4f06-8701-b76528b28713.png" 
+                },
+                { 
+                  title: "Materia prima de calidad", 
+                  description: "Colaboramos con productores que cuidan cada etapa del proceso",
+                  image: "/lovable-uploads/45e4d764-6d51-4440-be8f-5673c5ac5fe2.png" 
+                }
+              ].map((item, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <motion.div 
+                    whileHover={{ y: -10 }}
+                    className="bg-white rounded-xl overflow-hidden shadow-md border border-cafe-beige h-full flex flex-col"
+                  >
+                    <div className="aspect-w-16 aspect-h-10 relative overflow-hidden">
+                      <img 
+                        src={item.image} 
+                        alt={item.title} 
+                        className="object-cover w-full h-64"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 className="text-white text-xl font-serif font-semibold">{item.title}</h3>
+                      </div>
+                    </div>
+                    <div className="p-5 flex-grow">
+                      <p className="text-cafe-dark-brown">{item.description}</p>
+                    </div>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="hidden md:flex justify-center mt-4">
+              <CarouselPrevious className="static -translate-y-0 rounded-full bg-cafe-cream text-cafe-dark-brown hover:bg-cafe-light-brown hover:text-white transition-colors duration-200 border-none" />
+              <CarouselNext className="static -translate-y-0 rounded-full bg-cafe-cream text-cafe-dark-brown hover:bg-cafe-light-brown hover:text-white transition-colors duration-200 border-none ml-2" />
+            </div>
+          </Carousel>
+        </div>
       </section>
     </Layout>
   );
