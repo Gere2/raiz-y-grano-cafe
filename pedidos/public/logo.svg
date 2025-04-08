@@ -1,0 +1,12 @@
+<svg width="180" height="80" viewBox="0 0 180 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <circle cx="30" cy="30" r="29" stroke="#7a7d4e" stroke-width="1" fill="none"/>
+    <path d="M30 10 L30 50" stroke="#2b1d0e" stroke-width="2"/>
+    <path d="M30 50 L20 60 M30 50 L25 65 M30 50 L35 65 M30 50 L40 60" stroke="#2b1d0e" stroke-width="1.5"/>
+    <path d="M30 10 L20 20 L30 25 L40 20 L30 10Z" fill="#c9a77c" stroke="#2b1d0e" stroke-width="1.5"/>
+    <path d="M25 25 L15 35 L25 40 L35 35 L25 25Z" fill="#7a7d4e" stroke="#2b1d0e" stroke-width="1.5"/>
+    <path d="M35 25 L45 35 L35 40 L25 35 L35 25Z" fill="#c9a77c" stroke="#2b1d0e" stroke-width="1.5"/>
+  </g>
+  <text x="70" y="30" font-family="Cormorant, serif" font-size="24" font-weight="600" fill="#2b1d0e">RAÍZ y</text>
+  <text x="70" y="55" font-family="Cormorant, serif" font-size="24" font-weight="600" fill="#2b1d0e">GRANO</text>
+</svg>

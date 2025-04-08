@@ -1,0 +1,12 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" fill="#2b1d0e"/>
+  <path d="M60 20C65 25 70 30 60 50" stroke="#f0e9d2" stroke-width="2"/>
+  <path d="M60 30C70 35 75 40 80 45" stroke="#f0e9d2" stroke-width="2"/>
+  <path d="M60 30C50 35 45 40 40 45" stroke="#f0e9d2" stroke-width="2"/>
+  <path fill="#a67c52" stroke="#f0e9d2" stroke-width="1.5" d="M50 25 L60 30 L70 25 L60 20 Z"/>
+  <path fill="#a67c52" stroke="#f0e9d2" stroke-width="1.5" d="M45 35 L55 40 L65 35 L55 30 Z"/>
+  <path fill="#7a7d4e" stroke="#f0e9d2" stroke-width="1.5" d="M55 45 L65 50 L75 45 L65 40 Z"/>
+  <path fill="#a67c52" stroke="#f0e9d2" stroke-width="1.5" d="M65 35 L75 40 L85 35 L75 30 Z"/>
+  <path fill="#a67c52" stroke="#f0e9d2" stroke-width="1.5" d="M35 35 L45 40 L55 35 L45 30 Z"/>
+  <text x="60" y="90" font-family="serif" font-size="14" font-weight="600" fill="#f0e9d2" text-anchor="middle">RAÍZ y GRANO</text>
+</svg>
