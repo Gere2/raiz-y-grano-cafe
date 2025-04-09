@@ -1,31 +1,15 @@
 
 import { Coffee, MapPin, Phone, Clock, Mail, Instagram, Facebook } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-cafe-dark-brown text-cafe-cream pt-16 pb-8 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-          <pattern id="coffee-pattern" patternUnits="userSpaceOnUse" width="50" height="50" patternTransform="rotate(45)">
-            <Coffee size={20} color="#FFFFFF" />
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#coffee-pattern)" />
-        </svg>
-      </div>
-      
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
+    <footer className="bg-cafe-dark-brown text-cafe-cream pt-16 pb-8">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <motion.div 
-            className="flex flex-col items-center md:items-start"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center gap-3 mb-5">
               <img 
                 src="/lovable-uploads/c22750e3-6255-4880-9df0-6576b35fe881.png" 
@@ -40,7 +24,7 @@ const Footer = () => {
             <div className="flex space-x-4 mt-2">
               <a 
                 href="https://instagram.com" 
-                className="text-cafe-cream hover:text-cafe-beige transition-colors bg-white bg-opacity-10 p-2 rounded-full hover:bg-opacity-20" 
+                className="text-cafe-cream hover:text-cafe-beige transition-colors bg-white bg-opacity-10 p-2 rounded-full" 
                 aria-label="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -49,7 +33,7 @@ const Footer = () => {
               </a>
               <a 
                 href="https://facebook.com" 
-                className="text-cafe-cream hover:text-cafe-beige transition-colors bg-white bg-opacity-10 p-2 rounded-full hover:bg-opacity-20" 
+                className="text-cafe-cream hover:text-cafe-beige transition-colors bg-white bg-opacity-10 p-2 rounded-full" 
                 aria-label="Facebook"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -57,16 +41,10 @@ const Footer = () => {
                 <Facebook size={18} />
               </a>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div 
-            className="flex flex-col items-center md:items-start"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3 className="font-serif text-lg mb-5 relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:md:right-auto after:w-12 after:mx-auto after:md:mx-0 after:h-0.5 after:bg-cafe-light-brown">
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="font-serif text-lg mb-5 relative after:content-[''] after:block after:w-12 after:h-0.5 after:bg-cafe-light-brown after:mt-2">
               Horarios y Ubicación
             </h3>
             <div className="space-y-4">
@@ -81,21 +59,11 @@ const Footer = () => {
                 <MapPin size={18} className="shrink-0 mt-0.5 text-cafe-beige" />
                 <p>Entre el edificio H y el CRAI<br />Campus Ferrol</p>
               </div>
-              <div className="flex items-start gap-3">
-                <Phone size={18} className="shrink-0 mt-0.5 text-cafe-beige" />
-                <p>+34 612 345 678</p>
-              </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div 
-            className="flex flex-col items-center md:items-start"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <h3 className="font-serif text-lg mb-5 relative pb-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:md:right-auto after:w-12 after:mx-auto after:md:mx-0 after:h-0.5 after:bg-cafe-light-brown">
+          <div className="flex flex-col items-center md:items-start">
+            <h3 className="font-serif text-lg mb-5 relative after:content-[''] after:block after:w-12 after:h-0.5 after:bg-cafe-light-brown after:mt-2">
               Enlaces Rápidos
             </h3>
             <div className="grid grid-cols-2 gap-3 w-full">
@@ -109,13 +77,7 @@ const Footer = () => {
                 <span>Email</span>
               </a>
             </div>
-            
-            <div className="mt-6 pt-6 border-t border-cafe-light-brown border-opacity-20 w-full">
-              <p className="text-sm text-cafe-beige opacity-80">
-                Café sostenible, trazable y cultivado con respeto por la tierra y sus agricultores.
-              </p>
-            </div>
-          </motion.div>
+          </div>
         </div>
 
         <div className="border-t border-cafe-light-brown border-opacity-20 mt-12 pt-8 text-center">

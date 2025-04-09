@@ -1,203 +1,267 @@
 
-import { useEffect, useState } from 'react';
-import Layout from '@/components/Layout';
-import { motion } from 'framer-motion';
-import { Eye, X } from 'lucide-react';
+import Layout from "@/components/Layout";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { 
+  Card,
+  CardContent,
+} from "@/components/ui/card";
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
-// Define image gallery with categories
-const galleryImages = {
-  "Café": [
-    { src: "/lovable-uploads/649eac4b-afe2-4360-9252-bede9f39acc3.png", alt: "Café con croissant", description: "Espresso y croissant recién horneado" },
-    { src: "/lovable-uploads/f53365f0-b667-4808-a863-b2fb6e913df5.png", alt: "Preparando café", description: "Barista preparando café de especialidad" },
-    { src: "/lovable-uploads/70f57454-a1cc-4f06-8701-b76528b28713.png", alt: "Café sobre libro", description: "Un momento de lectura acompañado de café" }
-  ],
-  "Alimentos": [
-    { src: "/lovable-uploads/45e4d764-6d51-4440-be8f-5673c5ac5fe2.png", alt: "Mujer con trigo", description: "Seleccionamos los mejores ingredientes" },
-    { src: "/lovable-uploads/649eac4b-afe2-4360-9252-bede9f39acc3.png", alt: "Café con croissant", description: "Repostería artesanal diaria" },
-    { src: "/lovable-uploads/eddb575b-707b-465f-82bd-fe69ba4037b5.png", alt: "Mesa con alimentos", description: "Opciones para todos los gustos" }
-  ],
-  "Ambiente": [
-    { src: "/lovable-uploads/70f57454-a1cc-4f06-8701-b76528b28713.png", alt: "Café sobre libro", description: "Ambiente perfecto para estudiar" },
-    { src: "/lovable-uploads/ffa79ff1-d030-4159-bd0b-8e303ab0f366.png", alt: "Espacio de cafetería", description: "Un rincón de paz en el campus" },
-    { src: "/lovable-uploads/f53365f0-b667-4808-a863-b2fb6e913df5.png", alt: "Preparando café", description: "Pasión en cada preparación" }
-  ],
-  "Sostenibilidad": [
-    { src: "/lovable-uploads/45e4d764-6d51-4440-be8f-5673c5ac5fe2.png", alt: "Mujer con trigo", description: "Compromiso con el origen" },
-    { src: "/lovable-uploads/92d62c2f-fdf0-42ee-8703-7e0bc4236dac.png", alt: "Manos sosteniendo café", description: "Comercio justo con productores" },
-    { src: "/lovable-uploads/51e9a661-0432-4c8e-9c51-9c8df69e9d94.png", alt: "Taza reutilizable", description: "Comprometidos con el medio ambiente" }
-  ]
-};
+// Imágenes de carteles promocionales
+const promotionalImages = [
+  {
+    id: 1,
+    src: "/lovable-uploads/92d62c2f-fdf0-42ee-8703-7e0bc4236dac.png",
+    alt: "Conoce cómo conservar tu café molido",
+    category: "consejos"
+  },
+  {
+    id: 2,
+    src: "/lovable-uploads/2f86309b-c09e-48cd-ace5-08f53fbd76b4.png",
+    alt: "HOY TE SERVIMOS: Origen Etiopía - Floral y cítrico",
+    category: "café"
+  },
+  {
+    id: 3,
+    src: "/lovable-uploads/6c9935e5-3b4e-44b9-9bee-f5bfe9772810.png",
+    alt: "CONSEJO: Conoce a Oscar, caficultor colombiano del lote El Rocío",
+    category: "consejos"
+  },
+  {
+    id: 4,
+    src: "/lovable-uploads/eb416299-66a6-4bdf-90b6-16b0973ecdd9.png",
+    alt: "Logo de Raíz y Grano",
+    category: "branding"
+  },
+  {
+    id: 5,
+    src: "/lovable-uploads/75ce01af-aa90-4ec6-a828-6ad664d2fcf6.png",
+    alt: "APERTURA DE RAÍZ Y GRANO - Sabor que enciende neuronas",
+    category: "promoción"
+  },
+  {
+    id: 6,
+    src: "/lovable-uploads/59c6ec53-307a-449d-83c0-39367e96e386.png",
+    alt: "¡ABRIMOS HOY! RAÍZ Y GRANO - Tu nueva pausa favorita entre clase y clase",
+    category: "promoción"
+  },
+  {
+    id: 7,
+    src: "/lovable-uploads/08af2b01-4ca9-4bfb-97c2-2268ae192fea.png",
+    alt: "CAFÉ PARA QUIENES DESPIERTAN MENTES - Raíz y Grano: tu pausa con sentido",
+    category: "promoción"
+  },
+  {
+    id: 8,
+    src: "/lovable-uploads/eddb575b-707b-465f-82bd-fe69ba4037b5.png",
+    alt: "IDEAS QUE GERMINAN CON CAFÉ - Raíz y Grano, tu pausa con profundidad",
+    category: "promoción"
+  },
+  {
+    id: 9,
+    src: "/lovable-uploads/51e9a661-0432-4c8e-9c51-9c8df69e9d94.png",
+    alt: "El café que inspira, el café que transforma - Raíz y Grano tu pausa con alma",
+    category: "promoción"
+  },
+  {
+    id: 10,
+    src: "/lovable-uploads/ae17feec-88a6-4ff6-b4aa-2fa9dfb4a3cc.png",
+    alt: "Una pausa con esencia - Café de especialidad, para tu momento más tuyo",
+    category: "promoción"
+  },
+  {
+    id: 11,
+    src: "/lovable-uploads/43e54373-9a22-414b-bf7b-3659781392c6.png",
+    alt: "HOY TE SERVIMOS: Origen Etiopía - Floral y cítrico",
+    category: "café"
+  },
+  {
+    id: 12,
+    src: "/lovable-uploads/1ed06b71-f1b5-401f-84a0-f7572be153d6.png",
+    alt: "Logo de Raíz y Grano",
+    category: "branding"
+  },
+  {
+    id: 13,
+    src: "/lovable-uploads/9a562b14-8f86-4f65-96a9-af7d47660d1c.png",
+    alt: "¡APERTURA DE RAÍZ Y GRANO! - El sabor que enciende neuronas entre clases",
+    category: "promoción"
+  }
+];
 
 const Gallery = () => {
+  const [filter, setFilter] = useState("todos");
+  const [filteredImages, setFilteredImages] = useState(promotionalImages);
+  const [selectedImage, setSelectedImage] = useState<null | typeof promotionalImages[0]>(null);
+  const [showLightbox, setShowLightbox] = useState(false);
+
   useEffect(() => {
     document.title = "Galería | Raíz y Grano";
   }, []);
 
-  const [activeCategory, setActiveCategory] = useState<string>("Café");
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState<any>(null);
-  
-  const categories = Object.keys(galleryImages);
+  useEffect(() => {
+    if (filter === "todos") {
+      setFilteredImages(promotionalImages);
+    } else {
+      setFilteredImages(promotionalImages.filter(img => img.category === filter));
+    }
+  }, [filter]);
 
-  const openLightbox = (image: any) => {
-    setCurrentImage(image);
-    setLightboxOpen(true);
-    // Prevent scrolling when lightbox is open
-    document.body.style.overflow = 'hidden';
+  const handleImageClick = (image: typeof promotionalImages[0]) => {
+    setSelectedImage(image);
+    setShowLightbox(true);
   };
 
   const closeLightbox = () => {
-    setLightboxOpen(false);
-    // Restore scrolling when lightbox is closed
-    document.body.style.overflow = 'auto';
-  };
-
-  const staggerAnimation = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.5,
-      }
-    })
+    setShowLightbox(false);
   };
 
   return (
-    <Layout>
-      <div className="pt-20 md:pt-24">
-        <motion.section 
-          className="py-12 md:py-16"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <motion.div 
-                className="text-center mb-16"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <h1 className="text-4xl md:text-5xl font-serif text-cafe-dark-brown mb-6">Galería</h1>
-                <div className="w-24 h-1 bg-cafe-light-brown mx-auto mb-8"></div>
-                <p className="text-lg text-cafe-dark-brown max-w-2xl mx-auto">
-                  Descubre la esencia de Raíz y Grano a través de nuestras imágenes. Una mirada visual 
-                  a nuestro café, productos y ambiente.
-                </p>
-              </motion.div>
+    <Layout fullWidth>
+      <div className="pt-24 md:pt-28">
+        <div className="container mx-auto px-4 py-12">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-serif text-center mb-4 text-cafe-dark-brown"
+          >
+            Nuestra Galería
+          </motion.h1>
+          
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-center text-cafe-dark-brown mb-12 max-w-2xl mx-auto"
+          >
+            Conoce nuestros carteles promocionales y descubre nuestra identidad visual.
+          </motion.p>
 
-              <motion.div
-                className="flex flex-wrap justify-center gap-3 md:gap-5 mb-12"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                {categories.map((category) => (
-                  <motion.button
-                    key={category}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setActiveCategory(category)}
-                    className={`px-5 py-3 rounded-full text-sm md:text-base transition-colors ${
-                      activeCategory === category
-                        ? "bg-cafe-dark-brown text-cafe-cream shadow-md"
-                        : "bg-cafe-beige text-cafe-dark-brown hover:bg-cafe-light-brown hover:text-cafe-cream"
-                    }`}
-                  >
-                    {category}
-                  </motion.button>
+          {/* Carousel de destacados */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="mb-16"
+          >
+            <h2 className="text-2xl font-serif text-center mb-8 text-cafe-dark-brown">Destacados</h2>
+            <Carousel className="max-w-4xl mx-auto">
+              <CarouselContent>
+                {[5, 6, 9, 12].map((idx) => (
+                  <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1">
+                      <Card className="border-0 shadow-md overflow-hidden">
+                        <CardContent className="p-0">
+                          <img 
+                            src={promotionalImages[idx-1].src} 
+                            alt={promotionalImages[idx-1].alt}
+                            className="w-full h-auto object-cover aspect-[3/4] cursor-pointer transition-transform hover:scale-105"
+                            onClick={() => handleImageClick(promotionalImages[idx-1])}
+                          />
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
                 ))}
-              </motion.div>
+              </CarouselContent>
+              <CarouselPrevious className="left-0" />
+              <CarouselNext className="right-0" />
+            </Carousel>
+          </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-10 flex flex-wrap justify-center gap-2"
+          >
+            {["todos", "promoción", "café", "consejos", "branding"].map((category) => (
+              <button
+                key={category}
+                onClick={() => setFilter(category)}
+                className={`px-4 py-2 rounded-full text-sm md:text-base transition-colors ${
+                  filter === category
+                    ? "bg-cafe-dark-brown text-cafe-cream"
+                    : "bg-cafe-beige text-cafe-dark-brown hover:bg-cafe-light-brown hover:text-cafe-cream"
+                }`}
+              >
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </button>
+            ))}
+          </motion.div>
+
+          <motion.div
+            layout
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+          >
+            {filteredImages.map((image) => (
               <motion.div
-                key={activeCategory}
+                key={image.id}
+                layout
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                className="overflow-hidden rounded-lg shadow-md bg-white"
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
-                {galleryImages[activeCategory as keyof typeof galleryImages].map((image, index) => (
-                  <motion.div
-                    key={`${activeCategory}-${index}`}
-                    custom={index}
-                    variants={staggerAnimation}
-                    initial="hidden"
-                    animate="visible"
-                    className="group relative rounded-xl overflow-hidden shadow-md cursor-pointer h-64"
-                    onClick={() => openLightbox(image)}
-                  >
-                    <img 
-                      src={image.src} 
-                      alt={image.alt} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                      <div className="w-full">
-                        <h3 className="text-white font-medium mb-1">{image.alt}</h3>
-                        <p className="text-white/80 text-sm">{image.description}</p>
-                      </div>
-                      <div className="bg-white/20 p-2 rounded-full backdrop-blur-sm">
-                        <Eye className="text-white" size={20} />
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
+                <div 
+                  className="cursor-pointer" 
+                  onClick={() => handleImageClick(image)}
+                >
+                  <img 
+                    src={image.src} 
+                    alt={image.alt} 
+                    className="w-full h-auto object-cover aspect-[3/4]"
+                  />
+                </div>
               </motion.div>
-
-              {/* Gallery description */}
-              <motion.div 
-                className="mt-16 bg-cafe-beige bg-opacity-20 p-8 rounded-xl"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                <h2 className="text-2xl font-serif text-cafe-dark-brown mb-4">Nuestra Historia Visual</h2>
-                <p className="text-cafe-dark-brown">
-                  En Raíz y Grano creemos que las imágenes transmiten sensaciones y valores que las palabras 
-                  a veces no pueden expresar. A través de esta galería queremos compartir contigo no solo nuestros 
-                  productos y espacios, sino también la filosofía y pasión que hay detrás de cada taza de café 
-                  que preparamos.
-                </p>
-                <p className="text-cafe-dark-brown mt-4">
-                  Te invitamos a conocernos mejor a través de estas instantáneas que capturan la esencia de 
-                  nuestro proyecto: sostenibilidad, artesanía y amor por el café de especialidad.
-                </p>
-              </motion.div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Lightbox */}
-        {lightboxOpen && currentImage && (
-          <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4">
-            <button 
-              onClick={closeLightbox}
-              className="absolute top-4 right-4 text-white hover:text-cafe-cream p-2 rounded-full bg-black/50 transition-colors"
-              aria-label="Cerrar"
-            >
-              <X size={24} />
-            </button>
-            
-            <div className="max-w-4xl w-full">
-              <div className="relative rounded-lg overflow-hidden">
-                <img 
-                  src={currentImage.src} 
-                  alt={currentImage.alt} 
-                  className="w-full h-auto max-h-[80vh] object-contain" 
-                />
-              </div>
-              <div className="mt-4 text-white text-center">
-                <h3 className="text-xl font-serif">{currentImage.alt}</h3>
-                <p className="text-cafe-cream opacity-80 mt-2">{currentImage.description}</p>
-              </div>
-            </div>
-          </div>
-        )}
+            ))}
+          </motion.div>
+        </div>
       </div>
+
+      {/* Lightbox para imagen seleccionada */}
+      {showLightbox && selectedImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4"
+          onClick={closeLightbox}
+        >
+          <motion.div
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+            className="relative max-w-3xl max-h-[90vh] w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              className="w-full h-auto max-h-[90vh] object-contain"
+            />
+            <button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 text-white text-xl bg-cafe-dark-brown bg-opacity-70 w-10 h-10 rounded-full flex items-center justify-center"
+            >
+              ×
+            </button>
+            <p className="text-white text-center mt-4 italic">{selectedImage.alt}</p>
+          </motion.div>
+        </motion.div>
+      )}
     </Layout>
   );
 };

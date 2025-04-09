@@ -1,8 +1,7 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Instagram, Facebook } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,6 +26,10 @@ const Navbar = () => {
     setIsMenuOpen(false);
   }, [location]);
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   const navLinks = [
     { name: 'Inicio', path: '/' },
     { name: 'Nosotros', path: '/nosotros' },
@@ -40,7 +43,7 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled || isMenuOpen ? 'bg-cafe-cream shadow-md py-2' : 'bg-transparent py-4'
+        isScrolled ? 'bg-cafe-cream bg-opacity-95 shadow-md py-2' : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -59,45 +62,34 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-cafe-dark-brown hover:text-cafe-light-brown font-medium transition-all relative group ${
-                  isActive(link.path) ? 'text-cafe-light-brown' : ''
+                className={`text-cafe-dark-brown hover:text-cafe-light-brown font-medium transition-colors relative ${
+                  isActive(link.path) ? 'after:content-[""] after:absolute after:w-full after:h-0.5 after:bg-cafe-light-brown after:bottom-[-6px] after:left-0' : ''
                 }`}
               >
                 {link.name}
-                <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-cafe-light-brown transform origin-left transition-transform duration-300 ${
-                  isActive(link.path) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                }`}></span>
               </Link>
             ))}
             
-            <div className="flex items-center space-x-3">
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-cafe-dark-brown hover:text-cafe-light-brown transition-colors p-1 rounded-full hover:bg-cafe-light-brown/10"
-                aria-label="Instagram"
-              >
-                <Instagram size={18} />
-              </a>
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-cafe-dark-brown hover:text-cafe-light-brown transition-colors p-1 rounded-full hover:bg-cafe-light-brown/10"
-                aria-label="Facebook"
-              >
-                <Facebook size={18} />
-              </a>
-            </div>
+            <a 
+              href="https://instagram.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-cafe-dark-brown hover:text-cafe-light-brown transition-colors"
+              aria-label="Instagram"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-cafe-dark-brown p-1 focus:outline-none focus:ring-2 focus:ring-cafe-light-brown rounded-md"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden text-cafe-dark-brown"
+            onClick={toggleMenu}
             aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
-            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -105,65 +97,40 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div 
-            className="md:hidden absolute top-full left-0 w-full bg-cafe-cream py-4 shadow-md"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="container mx-auto px-4">
-              <div className="flex flex-col space-y-1">
-                {navLinks.map((link, i) => (
-                  <motion.div
-                    key={link.name}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                  >
-                    <Link
-                      to={link.path}
-                      className={`block py-3 px-4 rounded-lg font-medium transition-colors ${
-                        isActive(link.path) 
-                          ? 'bg-cafe-light-brown/10 text-cafe-light-brown' 
-                          : 'text-cafe-dark-brown hover:bg-cafe-light-brown/5 hover:text-cafe-light-brown'
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                ))}
-
-                <div className="pt-4 pb-2 px-4 border-t border-cafe-beige mt-2">
-                  <p className="text-sm text-cafe-dark-brown/70 mb-3">Síguenos</p>
-                  <div className="flex items-center gap-4">
-                    <a 
-                      href="https://instagram.com" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-cafe-dark-brown hover:text-cafe-light-brown transition-colors p-2 rounded-full hover:bg-cafe-light-brown/10"
-                      aria-label="Instagram"
-                    >
-                      <Instagram size={20} />
-                    </a>
-                    <a 
-                      href="https://facebook.com" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-cafe-dark-brown hover:text-cafe-light-brown transition-colors p-2 rounded-full hover:bg-cafe-light-brown/10"
-                      aria-label="Facebook"
-                    >
-                      <Facebook size={20} />
-                    </a>
-                  </div>
-                </div>
+      {isMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-cafe-cream bg-opacity-95 py-4 shadow-md animate-fade-in">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`text-cafe-dark-brown hover:text-cafe-light-brown py-2 font-medium transition-colors border-b border-cafe-beige border-opacity-30 ${
+                    isActive(link.path) ? 'text-cafe-light-brown font-semibold' : ''
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <div className="pt-2 flex items-center gap-4">
+                <a 
+                  href="https://instagram.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-cafe-dark-brown hover:text-cafe-light-brown transition-colors"
+                  aria-label="Instagram"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
               </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

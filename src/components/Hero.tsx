@@ -1,7 +1,6 @@
 
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Coffee, Clock, MapPin } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -23,7 +22,7 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
           >
             <img 
-              src="/lovable-uploads/c22750e3-6255-4880-9df0-6576b35fe881.png" 
+              src="/lovable-uploads/147f83b5-bcab-4380-afbe-a256626eda4f.png" 
               alt="Raíz y Grano Logo" 
               className="w-full max-w-xs mx-auto mb-8"
             />
@@ -69,26 +68,34 @@ const Hero = () => {
           >
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 flex items-center justify-center rounded-full bg-cafe-beige mb-4">
-                <MapPin className="text-cafe-dark-brown" size={24} />
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cafe-dark-brown">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
               </div>
               <h3 className="font-serif font-medium text-lg mb-2">Ubicación con propósito</h3>
-              <p className="text-sm opacity-80">Entre el edificio H y el CRAI<br />Campus Ferrol</p>
             </div>
 
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 flex items-center justify-center rounded-full bg-cafe-beige mb-4">
-                <Coffee className="text-cafe-dark-brown" size={24} />
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cafe-dark-brown">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                  <line x1="6" y1="1" x2="6" y2="4"></line>
+                  <line x1="10" y1="1" x2="10" y2="4"></line>
+                  <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
               </div>
               <h3 className="font-serif font-medium text-lg mb-2">Café de especialidad</h3>
-              <p className="text-sm opacity-80">Granos seleccionados y tostados<br />artesanalmente</p>
             </div>
 
             <div className="flex flex-col items-center">
               <div className="w-16 h-16 flex items-center justify-center rounded-full bg-cafe-beige mb-4">
-                <Clock className="text-cafe-dark-brown" size={24} />
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cafe-dark-brown">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
               </div>
-              <h3 className="font-serif font-medium text-lg mb-2">Horario</h3>
-              <p className="text-sm opacity-80">Lunes a Viernes<br />7:00 - 18:00</p>
+              <h3 className="font-serif font-medium text-lg mb-2">Artesanal y natural</h3>
             </div>
           </motion.div>
 
@@ -104,8 +111,6 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
-
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent"></div>
     </section>
   );
 };

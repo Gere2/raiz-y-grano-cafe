@@ -1,6 +1,6 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -86,21 +86,10 @@
 
   body {
     @apply bg-cafe-cream text-cafe-dark-brown font-sans;
-    scroll-behavior: smooth;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif font-medium;
-  }
-
-  /* Improve default image rendering */
-  img {
-    @apply max-w-full h-auto;
-  }
-
-  /* Add smooth transitions for focus states */
-  a, button {
-    @apply transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cafe-light-brown;
   }
 }
 
@@ -135,19 +124,19 @@
   }
   
   .cafe-button {
-    @apply py-3 px-6 rounded-full font-medium transition-all duration-300 inline-flex items-center justify-center;
+    @apply py-3 px-6 rounded-full font-medium transition-all duration-300;
   }
   
   .cafe-button-primary {
-    @apply cafe-button bg-cafe-dark-brown text-cafe-cream hover:bg-opacity-90 shadow-sm hover:shadow-md;
+    @apply cafe-button bg-cafe-dark-brown text-cafe-cream hover:bg-opacity-90;
   }
   
   .cafe-button-secondary {
-    @apply cafe-button border-2 border-cafe-dark-brown text-cafe-dark-brown hover:bg-cafe-dark-brown hover:text-cafe-cream shadow-sm hover:shadow-md;
+    @apply cafe-button border-2 border-cafe-dark-brown text-cafe-dark-brown hover:bg-cafe-dark-brown hover:text-cafe-cream;
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-serif font-medium mb-8 text-cafe-dark-brown text-center relative;
+    @apply text-3xl md:text-4xl font-serif mb-8 text-cafe-dark-brown text-center relative;
   }
   
   .section-title::after {
@@ -156,75 +145,7 @@
     width: 80px;
     height: 3px;
     background-color: theme('colors.cafe.light-brown');
-    margin: 0.8rem auto 0;
+    margin: 0.5rem auto 0;
     border-radius: 2px;
-  }
-
-  /* Form styling */
-  .form-input {
-    @apply w-full px-4 py-2 border border-cafe-beige bg-white rounded-lg transition-all duration-200 focus:ring-2 focus:ring-cafe-light-brown focus:border-cafe-light-brown;
-  }
-  
-  /* Common card styling */
-  .cafe-card {
-    @apply bg-white rounded-xl shadow-md border border-cafe-beige border-opacity-30 overflow-hidden transition-all duration-300;
-  }
-  
-  /* Image hover effects */
-  .image-hover {
-    @apply transition-all duration-500 hover:scale-105;
-  }
-
-  /* Brand-specific blockquote */
-  .cafe-quote {
-    @apply italic text-cafe-dark-brown border-l-4 border-cafe-light-brown pl-4 py-2;
-  }
-}
-
-/* Additional utility classes */
-.text-balance {
-  text-wrap: balance;
-}
-
-.prose h2 {
-  @apply text-cafe-dark-brown font-serif text-2xl mb-4;
-}
-
-.prose p {
-  @apply mb-6 text-cafe-dark-brown opacity-90;
-}
-
-/* Hide scrollbar for clean UI in webkit browsers */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Animation classes */
-.animate-fadeIn {
-  animation: fadeIn 0.8s ease forwards;
-}
-
-.animate-slideUp {
-  animation: slideUp 0.8s ease forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

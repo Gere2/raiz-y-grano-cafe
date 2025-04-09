@@ -1,4 +1,3 @@
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -77,10 +76,10 @@ module.exports = {
           700: "#5a5d2e",
         },
         coffee: {
-          400: "#6B4C32",
-          500: "#4A3520",
-          600: "#3B2A1A",
-          700: "#2B1F14",
+          400: "#3b2d1e",
+          500: "#2b1d0e",
+          600: "#1b0d00",
+          700: "#0b0000",
         },
         tan: {
           300: "#d9b78c",
@@ -108,10 +107,6 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
-      backgroundImage: {
-        'leaf-pattern': "url('/pedidos/bg-texture.png')",
-        'cafe-texture': "linear-gradient(rgba(248, 242, 220, 0.8), rgba(248, 242, 220, 0.8)), url('/pedidos/bg-texture.png')"
-      }
     },
   },
   plugins: [require("tailwindcss-animate")],
