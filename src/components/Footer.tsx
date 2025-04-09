@@ -1,5 +1,5 @@
 
-import { Coffee, MapPin, Phone, Clock, Mail, Instagram, Facebook } from 'lucide-react';
+import { Coffee, MapPin, Phone, Clock, Mail, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -48,13 +48,21 @@ const Footer = () => {
                 <Instagram size={18} />
               </a>
               <a 
-                href="https://facebook.com" 
+                href="https://tiktok.com" 
                 className="text-cafe-cream hover:text-cafe-beige transition-colors bg-white bg-opacity-10 p-2 rounded-full hover:bg-opacity-20" 
-                aria-label="Facebook"
+                aria-label="TikTok"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Facebook size={18} />
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
+                  <path d="M15 8a4 4 0 0 0 0 8"></path>
+                  <path d="M15 12h-2"></path>
+                  <path d="M22 8v8"></path>
+                  <path d="M17 12V8h5"></path>
+                  <path d="M17 8a5 5 0 0 0-5-5"></path>
+                  <path d="M12 3v9"></path>
+                </svg>
               </a>
             </div>
           </motion.div>
@@ -79,11 +87,11 @@ const Footer = () => {
               </div>
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="shrink-0 mt-0.5 text-cafe-beige" />
-                <p>Entre el edificio H y el CRAI<br />Campus Ferrol</p>
+                <p>Universidad UFV<br />Madrid</p>
               </div>
               <div className="flex items-start gap-3">
                 <Phone size={18} className="shrink-0 mt-0.5 text-cafe-beige" />
-                <p>+34 612 345 678</p>
+                <p>+34 696 766 943</p>
               </div>
             </div>
           </motion.div>

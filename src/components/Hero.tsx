@@ -68,30 +68,30 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto text-white backdrop-blur-sm bg-cafe-dark-brown bg-opacity-30 p-6 rounded-xl"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto bg-white bg-opacity-20 backdrop-blur-md p-6 rounded-xl border border-white border-opacity-30"
           >
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-cafe-beige mb-4">
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-cafe-beige mb-4 shadow-lg">
                 <MapPin className="text-cafe-dark-brown" size={24} />
               </div>
-              <h3 className="font-serif font-medium text-lg mb-2">Ubicación con propósito</h3>
-              <p className="text-sm opacity-90">Universidad UFV<br />Madrid</p>
+              <h3 className="font-serif font-medium text-lg mb-2 text-white drop-shadow-sm">Ubicación con propósito</h3>
+              <p className="text-sm text-white opacity-90">Universidad UFV<br />Madrid</p>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-cafe-beige mb-4">
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-cafe-beige mb-4 shadow-lg">
                 <Coffee className="text-cafe-dark-brown" size={24} />
               </div>
-              <h3 className="font-serif font-medium text-lg mb-2">Café de especialidad</h3>
-              <p className="text-sm opacity-90">Granos seleccionados y tostados<br />artesanalmente</p>
+              <h3 className="font-serif font-medium text-lg mb-2 text-white drop-shadow-sm">Café de especialidad</h3>
+              <p className="text-sm text-white opacity-90">Granos seleccionados y tostados<br />artesanalmente</p>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-cafe-beige mb-4">
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-cafe-beige mb-4 shadow-lg">
                 <Clock className="text-cafe-dark-brown" size={24} />
               </div>
-              <h3 className="font-serif font-medium text-lg mb-2">Horario</h3>
-              <p className="text-sm opacity-90">Lunes a Viernes<br />7:00 - 18:00</p>
+              <h3 className="font-serif font-medium text-lg mb-2 text-white drop-shadow-sm">Horario</h3>
+              <p className="text-sm text-white opacity-90">Lunes a Viernes<br />7:00 - 18:00</p>
             </div>
           </motion.div>
 

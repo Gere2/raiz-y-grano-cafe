@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import { motion } from 'framer-motion';
 import { MapPin, Clock, Phone, Mail, Send, CheckCircle } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const Contact = () => {
   useEffect(() => {
@@ -229,9 +230,19 @@ const Contact = () => {
                         </div>
                         
                         <div>
-                          <label htmlFor="subject" className="block text-cafe-dark-brown mb-2 font-medium">
-                            Asunto*
-                          </label>
+                          <TooltipProvider>
+                            <label htmlFor="subject" className="block text-cafe-dark-brown mb-2 font-medium">
+                              Asunto*
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <span className="ml-1 inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-cafe-light-brown rounded-full cursor-help">?</span>
+                                </TooltipTrigger>
+                                <TooltipContent className="bg-cafe-dark-brown text-white">
+                                  <p>Selecciona el motivo de tu contacto</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </label>
+                          </TooltipProvider>
                           <select
                             id="subject"
                             name="subject"

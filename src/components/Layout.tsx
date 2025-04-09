@@ -35,7 +35,7 @@ const Layout = ({ children, fullWidth = false, className = "" }: LayoutProps) =>
       {/* Contenido del sitio en z-10 para estar por encima del fondo */}
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />
-        <main className={`flex-grow ${fullWidth ? 'w-full' : 'container mx-auto px-4 md:px-6'}`}>
+        <main className={`flex-grow ${fullWidth ? 'w-full' : 'container mx-auto px-4 md:px-6'} pt-16 md:pt-20`}>
           {children}
         </main>
         <Footer />
