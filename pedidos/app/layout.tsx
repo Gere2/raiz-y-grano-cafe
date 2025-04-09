@@ -34,8 +34,16 @@ export default function RootLayout({
         <link rel="manifest" href="/pedidos/site.webmanifest" />
       </head>
       <body className="font-serif bg-cream-50">
-        <div className="min-h-screen flex flex-col">
-          <header className="bg-coffee-500 py-3 text-white text-center shadow-md">
+        <div className="min-h-screen flex flex-col"
+             style={{
+               backgroundImage: "url('/lovable-uploads/09bb9ce7-7c4b-4991-b6c3-b4db9a8df3ed.png')",
+               backgroundSize: "cover",
+               backgroundAttachment: "fixed",
+               backgroundPosition: "center",
+               backgroundBlendMode: "overlay",
+               backgroundColor: "#f8f5ed" // Color base claro para mezclar con la imagen
+             }}>
+          <header className="bg-coffee-500 py-3 text-white text-center shadow-md relative z-10">
             <div className="container mx-auto px-4">
               <img 
                 src="/pedidos/logo-minimal.svg" 
@@ -45,11 +53,11 @@ export default function RootLayout({
             </div>
           </header>
           
-          <main className="flex-grow">
+          <main className="flex-grow relative z-10 bg-white bg-opacity-90">
             {children}
           </main>
           
-          <footer className="py-4 text-center text-xs text-coffee-400 border-t border-cream-200">
+          <footer className="py-4 text-center text-xs text-coffee-400 border-t border-cream-200 relative z-10 bg-white bg-opacity-90">
             <p>&copy; {new Date().getFullYear()} RAÍZ y GRANO - Todos los derechos reservados</p>
           </footer>
         </div>

@@ -443,10 +443,11 @@ const Menu = () => {
           <div 
             className="absolute inset-0 bg-gradient-to-r from-cafe-dark-brown/80 to-cafe-dark-brown/60"
             style={{
-              backgroundImage: "url('/lovable-uploads/649eac4b-afe2-4360-9252-bede9f39acc3.png')",
+              backgroundImage: `url('/lovable-uploads/09bb9ce7-7c4b-4991-b6c3-b4db9a8df3ed.png')`,
               backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundPosition: "center 60%", // Ajustado para bajar la posición de la imagen
               backgroundBlendMode: "multiply",
+              opacity: 0.8 // Reducido para mejor legibilidad
             }}
           ></div>
           <div className="relative py-24 flex flex-col items-center justify-center text-center px-4 z-10">

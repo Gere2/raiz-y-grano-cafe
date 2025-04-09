@@ -81,8 +81,8 @@ const Contact = () => {
                         <div>
                           <h3 className="text-lg font-medium mb-1">Ubicación</h3>
                           <p className="text-cafe-dark-brown opacity-80">
-                            Entre el edificio H y el CRAI<br />
-                            Campus Ferrol
+                            Universidad UFV<br />
+                            Madrid
                           </p>
                         </div>
                       </div>
@@ -107,7 +107,7 @@ const Contact = () => {
                         <div>
                           <h3 className="text-lg font-medium mb-1">Teléfono</h3>
                           <p className="text-cafe-dark-brown opacity-80">
-                            +34 612 345 678
+                            +34 696 766 943
                           </p>
                         </div>
                       </div>
@@ -142,14 +142,20 @@ const Contact = () => {
                           </svg>
                         </a>
                         <a 
-                          href="https://facebook.com" 
+                          href="https://tiktok.com" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="bg-cafe-beige bg-opacity-30 hover:bg-opacity-50 p-3 rounded-full text-cafe-light-brown transition-colors"
-                          aria-label="Facebook"
+                          aria-label="TikTok"
                         >
                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
+                            <path d="M15 8a4 4 0 0 0 0 8"></path>
+                            <path d="M15 12h-2"></path>
+                            <path d="M22 8v8"></path>
+                            <path d="M17 12V8h5"></path>
+                            <path d="M17 8a5 5 0 0 0-5-5"></path>
+                            <path d="M12 3v9"></path>
                           </svg>
                         </a>
                       </div>
@@ -297,9 +303,8 @@ const Contact = () => {
                 </h2>
                 
                 <div className="h-[400px] w-full relative">
-                  {/* Replace this iframe with actual Google Maps embed code when available */}
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2913.1321200480154!2d-8.262751223414225!3d43.091633971346465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2e64b3f52b5bd9%3A0xc73656a7b604280!2sUniversidade%20da%20Coru%C3%B1a%20-%20Campus%20de%20Ferrol!5e0!3m2!1sen!2ses!4v1712179689706!5m2!1sen!2ses"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.9311532991475!2d-3.8374364846759394!3d40.4093656793669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd418e7b1de11df1%3A0xf373c390ac0a82a!2sUniversidad%20Francisco%20de%20Vitoria!5e0!3m2!1ses!2ses!4v1645462022272!5m2!1ses!2ses"
                     width="100%" 
                     height="100%" 
                     style={{ border: 0 }} 
@@ -312,7 +317,7 @@ const Contact = () => {
                 
                 <div className="p-6 bg-cafe-beige bg-opacity-20">
                   <p className="text-cafe-dark-brown">
-                    <strong>Raíz y Grano</strong> - Entre el edificio H y el CRAI, Campus Ferrol
+                    <strong>Raíz y Grano</strong> - Universidad Francisco de Vitoria, Madrid
                   </p>
                 </div>
               </motion.div>
