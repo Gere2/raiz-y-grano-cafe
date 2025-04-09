@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -48,6 +49,11 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
   }
 }
 
@@ -58,4 +64,40 @@
 
 .text-success {
   color: hsl(142 76% 36%);
+}
+
+/* Decorative elements */
+.leaf-decoration {
+  position: relative;
+  overflow: hidden;
+}
+
+.leaf-decoration::before,
+.leaf-decoration::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.leaf-decoration::before {
+  top: -10px;
+  left: -10px;
+  width: 180px;
+  height: 180px;
+  background-image: url('/pedidos/bg-texture.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.leaf-decoration::after {
+  bottom: -10px;
+  right: -10px;
+  width: 180px;
+  height: 180px;
+  background-image: url('/pedidos/bg-texture.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
 }
