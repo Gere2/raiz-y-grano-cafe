@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: "export", // Generates static HTML files
-    basePath: "/pedidos", // Changed from "/raiz-y-grano-cafe/pedidos" to "/pedidos"
-    trailingSlash: true, // Add trailing slashes to all URLs
+    output: "export",
+    basePath: process.env.NODE_ENV === 'production' ? "/pedidos" : "",
+    trailingSlash: true, // Útil para que todas las rutas tengan barra final
     images: {
-      unoptimized: true, // Required for static export
+      unoptimized: true,
     },
-    // Ensure environment variables are available
     env: {
       NEXT_PUBLIC_FIREBASE_API_KEY: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
       NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -14,7 +13,7 @@ const nextConfig = {
       NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
       NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
       NEXT_PUBLIC_FIREBASE_APP_ID: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-      NEXT_PUBLIC_BASE_PATH: "/pedidos", // Changed to match the basePath
+      NEXT_PUBLIC_BASE_PATH: process.env.NODE_ENV === 'production' ? "/pedidos" : "",
     },
   }
   
