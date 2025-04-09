@@ -16,11 +16,7 @@ const lora = Lora({
 export const metadata: Metadata = {
   title: "RAÍZ y GRANO - Pedidos",
   description: "Sistema de pedidos para profesores de RAÍZ y GRANO",
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_BASE_PATH
-      ? `https://gere2.github.io${process.env.NEXT_PUBLIC_BASE_PATH}`
-      : "http://localhost:3000",
-  ),
+  metadataBase: new URL(process.env.NODE_ENV === "production" ? "https://raizygrano.com" : "http://localhost:3000"),
 }
 
 export default function RootLayout({
