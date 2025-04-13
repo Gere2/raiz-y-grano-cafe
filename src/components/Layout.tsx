@@ -30,7 +30,7 @@ const Layout = ({ children, fullWidth = false, className = "" }: LayoutProps) =>
            backgroundColor: "#f8f5ed" // Color base claro para mezclar con la imagen
          }}>
       {/* Overlay para mejorar legibilidad */}
-      <div className="absolute inset-0 bg-white opacity-80 z-0"></div>
+      <div className="absolute inset-0 bg-white opacity-85 z-0"></div>
       
       {/* Contenido del sitio en z-10 para estar por encima del fondo */}
       <div className="relative z-10 flex flex-col min-h-screen">
